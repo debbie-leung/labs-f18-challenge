@@ -11,29 +11,29 @@ def main():
 @app.route('/pokemon/<int:idnum>', methods=['GET'])
 def id(idnum):
 	idnum = idnum
-	print(idnum)
+	#print(idnum)
 	param = "pokemon/" + str(idnum) + "/"
-	print(param)
+	#print(param)
 	URL = "https://pokeapi.co/api/v2/" + param
 	r = requests.get(URL)
-	print(str(r))
+	#print(str(r))
 	data = r.json()
 	idname = data['forms'][0]['name']
-	print(str(idname))
+	#print(str(idname))
 	return render_template('id.html', value1=idnum, value2=idname)
 
 @app.route('/pokemon/<idname>', methods=['GET'])
 def name(idname):
 	idname = idname
-	print(idname)
+	#print(idname)
 	param = "pokemon/" + str(idname) + "/"
-	print(param)
+	#print(param)
 	URL = "https://pokeapi.co/api/v2/" + param
 	r = requests.get(URL)
-	print(str(r))
+	#print(str(r))
 	data = r.json()
 	idnum = data['id']
-	print(str(idnum))
+	#print(str(idnum))
 	capname = idname.capitalize()
 	return render_template('name.html', value1=capname, value2=idnum)
 
